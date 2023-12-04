@@ -63,10 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     displayRepoInfo(repo)
                 })
             } else {
-                console.error('No repositories found for the user')
+                console.error('No repos found for the user')
             }
         })
-        .catch(error => console.error('Error fetching user repositories', error))
+        .catch(error => console.error('Error fetching user repos', error))
     }
 
     function displayRepoInfo(repo) {
