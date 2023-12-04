@@ -18,7 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     function userSearch(query) {
-        fetch(`https://api.github.com/search/users?q=${query}`)
+        fetch(`https://api.github.com/search/users?q=${query}`, {
+            headers: {
+                Accept: 'application/vnd.github.v3+json'
+            }
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.items) {
@@ -46,7 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function fetchUserRepos(username) {
-        fetch(`https://api.github.com/users/${username}/repos`)
+        fetch(`https://api.github.com/users/${username}/repos`, {
+            headers: {
+                Accept: 'application/vnd.github.v3+json'
+            }
+        })
         .then(resp => resp.json())
         .then(data => {
             if (data.length > 0) {
@@ -65,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         repoInfo.innerHTML = `
         <strong>${repo.name}</strong>
         <p>${repo.description || 'No description available'}</p>
-        <a href='${repo.html_url}' target='_blank'>View on GitHub</a>
+        <a href='${repo.html_url}' target='_blank'>Visit Repo on GitHub</a>
         `;
         repoList.appendChild(repoInfo)
     }
