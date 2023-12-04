@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputSearch = document.getElementById('search')
     const userList = document.getElementById('user-list')
     const repoList = document.getElementById('repos-list')
+    
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
